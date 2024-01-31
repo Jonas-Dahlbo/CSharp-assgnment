@@ -30,7 +30,7 @@ public class FileService_Tests
     {
         //Arrange
         IFileService fileService = new FileServices();
-        string filePath = @"C:\Users\Jonas\source\repos\ContactBookAssignment\ContactBook\test.txt";
+        string filePath = @"..\..\test.txt";
         string content = "Test content";
 
 
@@ -41,5 +41,34 @@ public class FileService_Tests
         Assert.True(result);
     
     }
- 
+
+    [Fact]
+
+    public void GetContentFromFileShould_ReadAFile_ThenReturnTheFileContent()
+    {
+        //Arrange
+        IFileService fileService = new FileServices();
+        string filePath = @"..\..\..\..\ContactBook\Repositories\ContactBook.json";
+
+        //Act
+        string result = fileService.GetContentFromFile(filePath);
+
+        //Assert
+        Assert.NotEmpty(result);
+    }
+
+    [Fact]
+
+    public void GetContentFromFileShould_FailToReadAFile_ThenReturnThenReturnNull()
+    {
+        //Arrange
+        IFileService fileService = new FileServices();
+        string filePath = $@"c:\{Guid.NewGuid()}\test.txt";
+
+        //Act
+        string result = fileService.GetContentFromFile(filePath);
+
+        //Assert
+        Assert.Null(result);
+    }
 }

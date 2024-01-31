@@ -106,7 +106,7 @@ namespace ContactBook.Services
         {
             try
             {
-                foreach (Contact contact in _contactList)
+                foreach (IContact contact in _contactList)
                 {
                     if (!Int32.TryParse(contactId, out int idInt) ||idInt <= 0 ||idInt > _contactList.Count)
                     {
