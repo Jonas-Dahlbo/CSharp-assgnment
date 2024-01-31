@@ -5,6 +5,9 @@ namespace ContactBook.Services
 {
     public class MenuService : IMenuService
     {
+        /// <summary>
+        /// Displays the contactbook and handles the menu
+        /// </summary>
         public void DisplayMenu()
         {
             IFileService fileService = new FileServices();
@@ -55,6 +58,7 @@ namespace ContactBook.Services
                     {
                         Console.WriteLine($"{c.FirstName} {c.LastName} {c.Email}");
                     }
+                    Console.WriteLine();
                     contactService.RemoveContactFromList(Console.ReadLine().Trim());
                     DisplayMenu();
                     break;

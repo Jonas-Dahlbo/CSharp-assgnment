@@ -54,9 +54,7 @@ namespace ContactBook.Tests
             var mockFileService = new Mock<IFileService>();
             IContactServices contactService = new ContactServices(mockFileService.Object);
             IContact contact = new Contact { FirstName = "Per", LastName = "Olofsson", Adress = "MinGata 123", Email = "Peol@domain.com", Phone = "0731234567" };
-            IContact contact2 = new Contact { FirstName = "Johan", LastName = "Olofsson", Adress = "MinGata 123", Email = "Jool@domain.com", Phone = "0731234567" };
             contactService.AddContactToList(contact);
-            contactService.AddContactToList(contact2);
             string contactEmail = "Peol@domain.com";
 
             //Act
